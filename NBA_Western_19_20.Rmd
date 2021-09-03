@@ -1,0 +1,1113 @@
+---
+title: "Tuan Linh Dao"
+output: html_notebook
+---
+####
+# Project 1: Data visualization with height and point 
+####
+# A. Western Conference in the NBA
+####
+
+# I/ Simple implementations :
+## a) Import dataset :
+```{r}
+data <- read.csv(file.choose(), header = T)
+```
+
+####
+## b) View the dataset :
+```{r}
+View(data)
+```
+
+####
+## c) Dimension of dataset :
+```{r}
+dim(data)
+```
+### Comment : 
+#### There are 252 rows and 4 columns. 
+####
+## d) Create a dataframe :
+```{r}
+Data <-data.frame(Player = data$player_name, Team = data$team_abbreviation, Height = data$player_height, PTS = data$pts)
+Data
+```
+
+
+
+####
+# II/Overall look : 
+####
+## a) Average height and point of each team :
+####
+### 1) Utah Jazz : 
+```{r}
+uta <- Data[Data$Team == "UTA", ]
+uta
+```
+
+```{r}
+# Average height of Utah Jazz :
+h_Jazz <- mean(uta$Height)
+h_Jazz
+# Average points of Utah Jazz :
+p_Jazz <- mean(uta$PTS)
+p_Jazz
+# Player with the most point and  his height :
+P1 <- uta[2, ]
+P1
+```
+
+
+####
+### 2) San Antonio Spurs : 
+```{r}
+sas <- Data[Data$Team == "SAS", ]
+sas
+```
+
+```{r}
+# Average height of San Antonio Spurs :
+h_Spurs <- mean(sas$Height)
+h_Spurs
+# Average point of San Antonio Spurs :
+p_Spurs <- mean(sas$PTS)
+p_Spurs
+# Player with the most point and  his height :
+P2 <- sas[4, ]
+P2
+```
+
+####
+### 3) Sacramanto Kings :
+```{r}
+sac <- Data[Data$Team == "SAC", ]
+sac
+```
+
+```{r}
+# Average height of Kings :
+h_Kings <- mean(sac$Height)
+h_Kings
+# Average point of Kings :
+p_Kings <- mean(sac$PTS)
+p_Kings
+# Player with the most point and  his height :
+P3 <- sac[8, ]
+P3
+```
+
+####
+### 4) Blazers : 
+```{r}
+por <- Data[Data$Team == "POR", ]
+por
+```
+
+```{r}
+# Average height of Blazers :
+h_Por <- mean(por$Height)
+h_Por
+# Average point of Blazers :
+p_Por <- mean(por$PTS)
+p_Por
+# Player with the most point and  his height :
+P4 <- por[8, ]
+P4
+```
+
+####
+### 5) Suns :
+```{r}
+suns <- Data[Data$Team == "PHX", ]
+suns
+```
+
+```{r}
+# Average height of Suns :
+h_Suns <- mean(suns$Height)
+h_Suns
+# Average point of Suns :
+p_Suns <- mean(suns$PTS)
+p_Suns 
+# Player with the most point and  his height :
+P5 <- suns[10, ]
+P5
+```
+
+####
+### 6) OKC :
+```{r}
+okc <- Data[Data$Team == "OKC", ]
+okc
+```
+
+```{r}
+# Average height of OKC :
+h_OKC <- mean(okc$Height)
+h_OKC
+# Average point of OKC :
+p_OKC <- mean(okc$PTS)
+p_OKC  
+# Player with the most point and his height :
+P6 <- okc[10, ]
+P6
+```
+
+####
+### 7) Pelicans : 
+```{r}
+nop <- Data[Data$Team =="NOP", ]
+nop
+```
+
+```{r}
+# Average height of Pelicans :
+h_NOP <- mean(nop$Height)
+h_NOP
+# Average point of Pelicans :
+p_NOP <- mean(nop$PTS)
+p_NOP
+# Player with the most point and  his height :
+P7 <- nop[6, ]
+P7
+```
+
+####
+### 8) Wolves : 
+```{r}
+min <- Data[Data$Team == "MIN", ]
+min
+```
+
+```{r}
+# Average height of Wolves :
+h_MIN <- mean(min$Height)
+h_MIN
+# Average point of Wolves :
+p_MIN <- mean(min$PTS)
+p_MIN
+# Player with the most point and  his height :
+P8 <- min[14, ]
+P8
+```
+
+####
+### 9) Grizzlies : 
+```{r}
+mem <- Data[Data$Team == "MEM", ]
+mem
+```
+
+```{r}
+# Average height of Wolves :
+h_MEM <- mean(mem$Height)
+h_MEM
+# Average point of Wolves :
+p_MEM <- mean(mem$PTS)
+p_MEM
+# Player with the most point and  his height :
+P9 <- mem[9, ]
+P9
+```
+
+####
+### 10) Lakers : 
+```{r}
+lal <- Data[Data$Team == "LAL", ]
+lal
+```
+
+```{r}
+# Average height of LAL :
+h_LAL <- mean(lal$Height)
+h_LAL
+# Average point of Wolves :
+p_LAL <- mean(lal$PTS)
+p_LAL
+# Player with the most point and  his height :
+P10 <- lal[6, ]
+P10
+```
+
+####
+### 11) Clippers : 
+```{r}
+lac <- Data[Data$Team == "LAC", ]
+lac
+```
+
+```{r}
+# Average height of Clippers :
+h_LAC <- mean(lac$Height)
+h_LAC
+# Average point of Clippers :
+p_LAC <- mean(lac$PTS)
+p_LAC
+# Player with the most point and  his height :
+P11 <- lac[13, ]
+P11
+```
+
+####
+### 12) Rockets : 
+```{r}
+hou <- Data[Data$Team == "HOU", ]
+hou
+```
+
+```{r}
+# Average height of Rockets :
+h_HOU <- mean(hou$Height)
+h_HOU
+# Average point of Rockets :
+p_HOU <- mean(hou$PTS)
+p_HOU
+# Player with the most point and  his height :
+P12 <- hou[4, ]
+P12
+```
+
+
+####
+### 13) Warriors : 
+```{r}
+gsw <- Data[Data$Team == "GSW", ]
+gsw
+```
+
+```{r}
+# Average height of Warriors :
+h_GSW <- mean(gsw$Height)
+h_GSW
+# Average point of Warriors :
+p_GSW <- mean(gsw$PTS)
+p_GSW
+# Player with the most point and  his height :
+P13 <- gsw[6, ]
+P13
+```
+
+####
+### 14) Denver : 
+```{r}
+den <- Data[Data$Team == "DEN", ]
+den
+```
+
+```{r}
+# Average height of Denver :
+h_DEN <- mean(den$Height)
+h_DEN
+# Average point of Denver :
+p_DEN <- mean(den$PTS)
+p_DEN
+# Player with the most point and  his height :
+P14 <- den[13, ]
+P14
+```
+
+####
+### 15) Mavs : 
+```{r}
+mavs <- Data[Data$Team == "DAL", ]
+mavs
+```
+
+```{r}
+# Average height of Mavs :
+h_DAL <- mean(mavs$Height)
+h_DAL
+# Average point of Mavs :
+p_DAL <- mean(mavs$PTS)
+p_DAL
+# Player with the most point and  his height :
+P15 <- mavs[16, ]
+P15
+```
+
+####
+## b) Summary 1:
+####
+### *) Average point of each team : 
+```{r}
+team_av_point <- rbind(p_DAL,p_DEN,p_GSW,p_HOU,p_Jazz,p_Kings,p_LAC,p_LAL,p_MEM,p_MIN,p_NOP,p_OKC,p_Por,p_Spurs,p_Suns)
+team_av_point
+View(team_av_point)
+```
+####
+### *) Average height of each team : 
+```{r}
+team_av_height <- rbind(h_DAL,h_DEN,h_GSW,h_HOU,h_Jazz,h_Kings,h_LAC,h_LAL,h_MEM,h_MIN,h_NOP,h_OKC,h_Por,h_Spurs,h_Suns)
+team_av_height
+```
+####
+### *) Name of teams : 
+```{r}
+#Column with name of team :
+x <- c("DAL","DEN","GSW","HOU","UTAH","Kings","LAC","LAL","MEM","MIN","NOP","OKC","POR","Spurs","Suns")
+x
+```
+
+
+####
+### *) Combination of 3 tables :
+```{r}
+TEAM <- data.frame(x,team_av_height,team_av_point)
+TEAM
+View(TEAM)
+```
+
+####
+### *) Scatter plot for all teams : 
+```{r}
+plot(TEAM$team_av_point,TEAM$team_av_height,main = "Scatter plot for all teams in the West",ylab = "Average height(cm)", xlab = "Average point", cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, xlim = c(7,11), ylim = c(196,204))
+# Add labels on the plot :
+text(TEAM$team_av_point,TEAM$team_av_height, labels = TEAM$x, pos = 3)
+```
+
+### Comment :
+#### Although the average height of the team "LAC" or Los Angeles Clippers doesn't exceed 200cm but they averaged most points compared to the other 14 teams in the Western Conference. Not only team "UTAH" or Utah Jazz isn't great in terms of scoring but also they have no advantage in height so the team needs to be improved. The Kings is a decent team here, because they are taller than the Clippers (almost average 200cm in height) . In the matter of scoring, they aren't far behind from the Clippers.
+####
+# III/ Players with most points in each team :
+####
+## a) Create a dataframe with all the players that have the most point in his team :
+```{r}
+# Column with player's name :
+y <- c("Mitchell","DeRozan","Fox","Lillard","D.Booker","Shai","B.Ingram","KAT","J.Jackson","A.Davis","K.Leonard","J.Harden","A.Wiggins","N.Jokic","L.Doncic")
+y
+```
+####
+### a.1) Table of player with their full name :
+
+```{r}
+Players <- rbind(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15)
+Players
+View(Players)
+```
+
+####
+### a.2) Table of player with their abbriviations :
+```{r}
+DF <- data.frame(y,Players$Team,Players$Height,Players$PTS)
+DF
+View(DF)
+```
+
+####
+## b) Scatter plot :
+```{r}
+# Scatter plot :
+plot(Players$PTS,Players$Height, main = "Scatter plot for players with most point in each team in the West", ylab = "Height(cm)", xlab = "Points",cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, ylim = c(185,217), xlim = c(19,38), pch = 16, col="red")
+# Add labels on the plot :
+text(Players$PTS,Players$Height, labels = DF$y, pos = 3)
+#abline(lm(Players$Height ~ Players$PTS, data = Players), col = "red")
+```
+
+### Comment : 
+#### As we can see , the further up of the chart the taller player is, the further right of the chart the more point player scores . Considering James Harden(from the Rockets)'s height, he's just taller than 5 players among 12 in the list but he's the best scorer here(average 34.5). Luka Doncic(from the Dallas Mavericks) is the solid player because of good height(approxiamately 200cm in height) and average 28.4 points. Damian Lillard(from the Blazers)'s average point is greater than Luka but he's the second shortest player in the list (just taller than Donovan Mitchell from the Utah Jazz).
+####
+# IV/Groups of height : 
+####
+## a) Min, Max, Q1, Q2, Q3 :
+```{r}
+# Min height :
+m <- min(Data$Height)
+m
+# Max height :
+M <- max(Data$Height)
+M
+# Q1, Q2, Q3 :
+q <- quantile(Data$Height)
+q
+```
+####
+## b) Groups : 
+```{r}
+cl_height_cut <- cut(Data$Height, breaks = c(175,190,200,224), labels = c("Average","Tall","Big men"), include.lowest = TRUE)
+cl_height_cut
+#View(cl_height_cut)
+```
+
+####
+## c) Frequency of 3 groups of height :
+```{r}
+table(cl_height_cut)
+```
+####
+## d) Total player of Western Conference : 
+```{r}
+total <- sum(table(cl_height_cut))
+total
+```
+####
+## e) Plots:
+### *) Percentage of 3 groups of height :
+```{r}
+a <- table(cl_height_cut)/total
+a
+```
+####
+### *) Pie chart :
+```{r}
+pie(a, main = "Pie chart for 3 groups of height (%) in the West ",col.main = 4,font.main = 4)
+```
+
+####
+### *) Bar chart :
+```{r}
+barplot(table(cl_height_cut), main = "Bar chart for 3 groups of height in frequency in the West", col = "yellow",col.main = 4,font.main = 4,las=1)
+```
+### Comment :
+#### The chart shows that there aren't alot of player with average height(just 12%) and "big men" has almost 4 times as many as "average" in the Western Conference .
+
+####
+
+## d) Create a dataframe for 3 groups of height :
+```{r}
+data1 <- data.frame(cl_height_cut, Data$PTS)
+data1
+View(data1)
+```
+####
+### d.1) "Average" table :
+```{r}
+aver <- data1[data1$cl_height_cut == "Average", ]
+aver
+```
+####
+### Total point for "Average" : 
+```{r}
+Average <- sum(aver$Data.PTS)
+Average
+```
+
+
+####
+### d.2) "Tall" table : 
+```{r}
+tall <- data1[data1$cl_height_cut == "Tall", ]
+tall
+```
+####
+### Total point for "Tall" : 
+```{r}
+Tall <- sum(tall$Data.PTS)
+Tall
+```
+
+
+####
+### d.3) "Big men" table : 
+```{r}
+big <- data1[data1$cl_height_cut == "Big men", ]
+big
+```
+####
+### Total point for "Big men" : 
+```{r}
+Big <- sum(big$Data.PTS)
+Big
+```
+### d.4) Total point scored by 3 groups of height :
+```{r}
+Total <- sum(aver_point)
+Total
+```
+####
+#### Dataframe for 3 groups of height :
+```{r}
+point_West <- rbind(Average, Tall, Big)
+point_West
+```
+
+
+## e) Plots :
+### e.1) Bar chart :
+```{r}
+# Bar chart :
+barplot(t(as.matrix(point_West)), main = "Total point scored by 3 groups of height in the West", xlab = "Point", ylab = "Height", col = "maroon", font.main = 4, col.main = 4,horiz=T)
+```
+### Comment : ###
+#### According to the chart, the "Big" group dominates two other groups in terms of scoring .
+
+####
+####
+# B. Eastern Conference in the NBA
+####
+# I/ Simple implementations :
+## a) Import dataset :
+```{r}
+data1 <- read.csv(file.choose(), header = T)
+data1
+```
+
+####
+## b) View the dataset :
+```{r}
+View(data1)
+```
+
+####
+## c) Dimension of dataset :
+```{r}
+dim(data1)
+```
+### Comment :
+#### There are 262 rows and 4 columns.
+####
+## d) Create a dataframe :
+```{r}
+Data1 <-data.frame(Player = data1$player_name, Team = data1$team_abbreviation, Height = data1$player_height, PTS = data1$pts)
+Data1
+View(Data1)
+```
+
+####
+# II/Overall look : 
+####
+## a) Average height and point of each team :
+####
+### 1) Bucks : 
+```{r}
+mil <- Data1[Data1$Team == "MIL", ]
+mil
+```
+
+```{r}
+# Average height of Bucks :
+h_MIL <- mean(mil$Height)
+h_MIL
+# Average points of Bucks :
+p_MIL <- mean(mil$PTS)
+p_MIL
+# Player with the most point and  his height :
+P16 <- mil[2, ]
+P16
+```
+####
+### 2) Wizards : 
+```{r}
+was <- Data1[Data1$Team == "WAS", ]
+was
+```
+
+```{r}
+# Average height of Bucks :
+h_WAS <- mean(was$Height)
+h_WAS
+# Average points of Bucks :
+p_WAS <- mean(was$PTS)
+p_WAS
+# Player with the most point and  his height :
+P17 <- was[9, ]
+P17
+```
+####
+### 3) Nets :
+```{r}
+bkn <- Data1[Data1$Team == "BKN", ]
+bkn
+```
+
+```{r}
+# Average height of Nets :
+h_NET <- mean(bkn$Height)
+h_NET
+# Average points of Nets :
+p_NET <- mean(bkn$PTS)
+p_NET
+# Player with the most point and  his height :
+P18 <- bkn[18, ]
+P18
+```
+####
+### 4) 76ers :
+```{r}
+phi <- Data1[Data1$Team == "PHI", ]
+phi
+```
+
+```{r}
+# Average height of 76ers :
+h_PHI <- mean(phi$Height)
+h_PHI
+# Average points of 76ers :
+p_PHI <- mean(phi$PTS)
+p_PHI
+# Player with the most point and  his height :
+P19 <- phi[3, ]
+P19
+```
+####
+## 5) Knicks :
+```{r}
+nyk <- Data1[Data1$Team == "NYK", ]
+nyk
+```
+
+```{r}
+# Average height of Knicks :
+h_NYK <- mean(nyk$Height)
+h_NYK
+# Average points of Knicks :
+p_NYK <- mean(nyk$PTS)
+p_NYK
+# Player with the most point and  his height :
+P20 <- nyk[13, ]
+P20
+```
+####
+## 6) Hawks :
+```{r}
+atl <- Data1[Data1$Team == "ATL", ]
+atl
+```
+
+```{r}
+# Average height of Hawks :
+h_ATL <- mean(atl$Height)
+h_ATL
+# Average points of Hawks :
+p_ATL <- mean(atl$PTS)
+p_ATL
+# Player with the most point and  his height :
+P21 <- atl[16, ]
+P21
+```
+####
+## 7) Heats :
+```{r}
+mia <- Data1[Data1$Team == "MIA", ]
+mia
+```
+
+```{r}
+# Average height of Heats :
+h_MIA <- mean(mia$Height)
+h_MIA
+# Average points of Heats :
+p_MIA <- mean(mia$PTS)
+p_MIA
+# Player with the most point and  his height :
+P22 <- mia[4, ]
+P22
+```
+####
+## 8) Celtics :
+```{r}
+bos <- Data1[Data1$Team == "BOS", ]
+bos
+```
+
+```{r}
+# Average height of Celtics :
+h_BOS <- mean(bos$Height)
+h_BOS
+# Average points of Celtics :
+p_BOS <- mean(bos$PTS)
+p_BOS
+# Player with the most point and  his height :
+P23 <- bos[4, ]
+P23
+```
+####
+## 9) Pacers :
+```{r}
+ind <- Data1[Data1$Team == "IND", ]
+ind
+```
+
+```{r}
+# Average height of Pacers :
+h_IND <- mean(ind$Height)
+h_IND
+# Average points of Pacers :
+p_IND <- mean(ind$PTS)
+p_IND
+# Player with the most point and  his height :
+P24 <- ind[11, ]
+P24
+```
+####
+## 10) Hornets :
+```{r}
+cha <- Data1[Data1$Team == "CHA", ]
+cha
+```
+
+```{r}
+# Average height of Hornets :
+h_CHA <- mean(cha$Height)
+h_CHA
+# Average points of Hornets :
+p_CHA <- mean(cha$PTS)
+p_CHA
+# Player with the most point and  his height :
+P25 <- cha[6, ]
+P25
+```
+####
+## 11) Bulls :
+```{r}
+chi <- Data1[Data1$Team == "CHI", ]
+chi
+```
+
+```{r}
+# Average height of Bulls :
+h_CHI <- mean(chi$Height)
+h_CHI
+# Average points of Bulls :
+p_CHI <- mean(chi$PTS)
+p_CHI
+# Player with the most point and  his height :
+P26 <- chi[11, ]
+P26
+```
+####
+## 12) Raptors :
+```{r}
+tor <- Data1[Data1$Team == "TOR", ]
+tor
+```
+
+```{r}
+# Average height of Raptors :
+h_TOR <- mean(tor$Height)
+h_TOR
+# Average points of Raptors :
+p_TOR <- mean(tor$PTS)
+p_TOR
+# Player with the most point and  his height :
+P27 <- tor[9, ]
+P27
+```
+####
+## 13) Cavs :
+```{r}
+cavs <- Data1[Data1$Team == "CLE", ]
+cavs
+```
+
+```{r}
+# Average height of Cavs :
+h_CAV <- mean(cavs$Height)
+h_CAV
+# Average points of Cavs :
+p_CAV <- mean(cavs$PTS)
+p_CAV
+# Player with the most point and  his height :
+P28 <- cavs[9, ]
+P28
+```
+####
+## 14) Magics :
+```{r}
+orl <- Data1[Data1$Team == "ORL", ]
+orl
+```
+
+```{r}
+# Average height of Magics :
+h_ORL <- mean(orl$Height)
+h_ORL
+# Average points of Magics :
+p_ORL <- mean(orl$PTS)
+p_ORL
+# Player with the most point and  his height :
+P29 <- orl[2, ]
+P29
+```
+####
+## 15) Pistons :
+```{r}
+det <- Data1[Data1$Team == "DET", ]
+det
+```
+
+```{r}
+# Average height of Pistons :
+h_DET <- mean(det$Height)
+h_DET
+# Average points of Pistons :
+p_DET <- mean(det$PTS)
+p_DET
+# Player with the most point and  his height :
+P30 <- det[4, ]
+P30
+```
+####
+## b) Summary 2:
+####
+### *) Average point of each team : 
+```{r}
+team_av_point1 <- rbind(p_MIL,p_WAS,p_NET,p_PHI,p_NYK,p_ATL,p_MIA,p_BOS,p_IND,p_CHA,p_CHI,p_TOR,p_CAV,p_ORL,p_DET)
+team_av_point1
+```
+####
+### *) Average height of each team : 
+```{r}
+team_av_height1 <- rbind(h_MIL,h_WAS,h_NET,h_PHI,h_NYK,h_ATL,h_MIA,h_BOS,h_IND,h_CHA,h_CHI,h_TOR,h_CAV,h_ORL,h_DET)
+team_av_height1
+```
+####
+### *) Name of teams : 
+```{r}
+#Column with name of team :
+n <- c("MIL","WAS","NET","PHI","NYK","ATL","MIA","BOS","IND","CHA","CHI","TOR","CAV","ORL","DET")
+n
+```
+####
+### *) Combination of 3 tables :
+```{r}
+TEAM1 <- data.frame(n,team_av_height1,team_av_point1)
+TEAM1
+View(TEAM1)
+```
+
+####
+### *) Scatter plot for all teams : 
+```{r}
+plot(TEAM1$team_av_point1,TEAM1$team_av_height1,main = "Scatter plot for all teams in the East",ylab = "Average height(cm)", xlab = "Average point", cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, xlim = c(7,9.5), ylim = c(196,204), pch = 16, col = "seagreen1")
+# Add labels on the plot :
+text(TEAM1$team_av_point1,TEAM1$team_av_height1, labels = TEAM1$n, pos = 3)
+```
+### Comment :
+#### The good team here is the Atlanta Hawks or "ATL", nearly in the middle of the plot(according to x and y axis), they are quite tall and aren't bad at scoring. The worst team is the Detroit Piston(DET), not only they're the shortest team but also not good at scoring, just averaged more points/game than 2 other teams(Cleveland Cavaliers - CAV and Orlando Magic).
+
+####
+# III/ Players with most points in each team :
+####
+## a) Create a dataframe with all the players that have the most point in his team :
+```{r}
+y1 <- c("G.Antetokounmpo","B.Beal","K.Irving","J.Embiid","J.Randle","T.Young","J.Butler","J.Tatum","Warren","D.Graham","Z.LaVine","P.Siakam","C.Sexton","E.Fournier","B.Griffin")
+y1
+```
+####
+### a.1) Table of player with their full name :
+```{r}
+Players1 <- rbind(P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30)
+Players1
+View(Players1)
+```
+
+####
+### a.2) Table of player with their abbriviations : 
+```{r}
+DF1 <- data.frame(y1,Players1$Team,Players1$Height,Players1$PTS)
+DF1
+View(DF1)
+```
+
+####
+## b) Scatter plot :
+```{r}
+# Scatter plot :
+plot(Players1$PTS,Players1$Height, main = "Scatter plot for players with most point in each team in the East", ylab = "Height(cm)", xlab = "Points",cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, ylim = c(183,217), xlim = c(14,35), pch = 16,col = "mediumvioletred")
+# Add labels on the plot :
+text(Players1$PTS,Players1$Height, labels = DF1$y1, pos = 3)
+```
+### Comment :
+#### Giannis antetokounmpo from Milwaukee Bucks have scroing skill and also height advantage. Trae Young from Atlanta Hawks impressed us with his ability to score(3rd highest in averaged point scored) although he's "undersized"(3rd shortest player in the list).
+
+####
+# IV/Groups of height : 
+####
+## a) Min, Max, Q1, Q2, Q3 :
+```{r}
+# Min height :
+m1 <- min(Data1$Height)
+m1
+# Max height :
+M1 <- max(Data1$Height)
+M1
+# Q1, Q2, Q3 :
+q1 <- quantile(Data1$Height)
+q1
+```
+
+####
+## b) Groups : 
+```{r}
+cl_height_cut1 <- cut(Data1$Height, breaks = c(175,190,200,227), labels = c("Average","Tall","Big men"), include.lowest = TRUE)
+cl_height_cut1
+```
+####
+## c) Frequency of 3 groups of height :
+```{r}
+table(cl_height_cut1)
+```
+
+####
+## d) Total player of the Eastern Conference :
+```{r}
+total1 <- sum(table(cl_height_cut1))
+total1
+```
+
+####
+## e) Plots:
+### *) Percentage of 3 groups of height :
+```{r}
+b <- table(cl_height_cut1)/total
+b
+```
+####
+### *) Pie chart :
+```{r}
+pie(b, main = "Pie chart for 3 groups of height (%) in the East  ",col.main = 4,font.main = 4)
+```
+####
+### *) Bar chart :
+```{r}
+barplot(table(cl_height_cut1), main = "Bar chart for 3 groups of height in frequency in the East", col = "blue",col.main = 4,font.main = 4,las=1)
+```
+### Comment :
+#### The "Big men" group takes 50% of players in the Eastern Conference.
+
+####
+
+## d) Create a dataframe for 3 groups of height :
+```{r}
+data2 <- data.frame(cl_height_cut1, Data1$PTS)
+data2
+View(data2)
+```
+
+####
+### d.1) "Average" table :
+```{r}
+aver1 <- data2[data2$cl_height_cut1 == "Average", ]
+aver1
+```
+
+####
+### Total point for "Average" :
+```{r}
+Average1 <- sum(aver1$Data1.PTS)
+Average1
+```
+
+####
+### d.2) "Tall" table :
+```{r}
+tall1 <- data2[data2$cl_height_cut1 == "Tall", ]
+tall1
+```
+
+####
+### Total point for "Tall" :
+```{r}
+Tall1 <- sum(tall1$Data1.PTS)
+Tall1
+```
+####
+### d.3) "Big men" table :
+```{r}
+big1 <- data2[data2$cl_height_cut1 == "Big men", ]
+big1
+```
+
+####
+### Total point for "Big men" :
+```{r}
+Big1 <- sum(big1$Data1.PTS)
+Big1
+```
+
+####
+### d.4) Total point for 3 groups of height :
+```{r}
+Total1 <- sum(data2$Data1.PTS)
+Total1
+```
+####
+### Dataframe for 3 groups of height :
+```{r}
+point_East <- rbind(Average1,Tall1,Big1)
+point_East
+```
+####
+## e) Plots :
+### Bar chart :
+```{r}
+# Bar chart :
+barplot(t(as.matrix(point_East)), main = "Total point scored by 3 groups of height in the East", xlab = "Point", ylab = "Height", col = "firebrick", font.main = 4, col.main = "midnightblue",horiz=T)
+```
+####
+# C.Comparison between two conferences in the NBA (West vs East) 
+####
+## I/ Scatter plot :
+####
+### a) The West :
+```{r}
+# Western Conference :
+plot(TEAM$team_av_point,TEAM$team_av_height,main = "Scatter plot for all teams in the West",ylab = "Average height(cm)", xlab = "Average point", cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, xlim = c(7,11), ylim = c(196,204), pch = 16, col="red")
+# Add labels on the plot :
+text(TEAM$team_av_point,TEAM$team_av_height, labels = TEAM$x, pos = 3)
+```
+### b) The East :
+```{r}
+plot(TEAM1$team_av_point1,TEAM1$team_av_height1,main = "Scatter plot for all teams in the East",ylab = "Average height(cm)", xlab = "Average point", cex.axis = 1, font.lab = 2, font.main = 4,col.main = 4, col.lab = 2, xlim = c(7,9.5), ylim = c(196,204), pch = 17, col = "red")
+# Add labels on the plot :
+text(TEAM1$team_av_point1,TEAM1$team_av_height1, labels = TEAM1$n, pos = 3)
+```
+####
+### Comment :
+#### Surprisingly there isn't a single team in the East averaged more the 10points/game and their average height doesn't greater than 202cm whereas the West has 2 teams averaged more than 10points( New Orleans Pelicans - NOP; Los Angeles Clippers - LAC) and 1 team has average height slightly more than 202cm( Porland Trail Blazers - POR).
+
+####
+## II/Bar chart :
+####
+### a) Dataframe :
+####
+### a.1) Create a dataframe for points scored by 3 groups of height (West and East) :
+```{r}
+Height <- c("Average","Tall","Big")
+DF2 <- data.frame(Height,point_West,point_East)
+DF2
+View(DF2)
+```
+### a.2) Dataframe for 3 groups of height in frequency (West and East) :
+```{r}
+DF3 <- as.matrix(data.frame("Average" = c(30,37), "Tall" = c(103,100), "Big" = c(119,125)))
+rownames(DF3) <- c("West","East")
+DF3
+```
+
+
+
+### b) Bar chart :
+####
+#### b.1) Turn a dataframe into matrix :
+```{r}
+DF4 <- as.matrix(data.frame("Average" = c(261,359),"Tall" = c(901.7,752.8), "Big" = c(1067.1,1092)))
+rownames(DF4) <- c("West","East")
+DF4
+```
+####
+#### b.2) Grouped bar chart :
+####
+### Points scored by each group of height (West and East) :
+```{r}
+barplot(DF4, col = c("red","blue"),beside = T, ylim = c(0,1100), main = "Points scored by each group of height (West and East) ", font.main = 4, font.lab = 2, col.main = 4, col.lab = 2, xlab = "Height", ylab = "Points scored",las=1)
+legend(x = 1, y = 1000, legend = c("West","East"), fill = c("red","blue"))
+```
+####
+### Groups of height in frequency (West and East) :
+```{r}
+barplot(DF3, col = c("mediumturquoise","mediumvioletred"),beside = T, ylim = c(0,130), main = "Groups of height in frequency (West and East) ", font.main = 4, font.lab = 2, col.main = 4, col.lab = 2, xlab = "Height", ylab = "Frequency",las=1)
+legend(x = 1, y = 120, legend = c("West","East"), fill = c("mediumturquoise","mediumvioletred"))
+```
+
+
+
+
+
+
+
+
+
+
